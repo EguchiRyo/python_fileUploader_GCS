@@ -1,0 +1,13 @@
+version: '3'
+services:
+  python3:
+    restart: always
+    build: .
+    container_name: 'python3'
+    working_dir: '/root/'
+    environment:
+      GOOGLE_APPLICATION_CREDENTIALS: key.json
+    tty: true
+    volumes:
+      - ./opt:/root/opt
+      - .${GOOGLE_APPLICATION_CREDENTIALS}:/key.json:ro
